@@ -11,6 +11,4 @@ for I in 5.5 5.6 7.0; do
   echo 'RUN docker-php-ext-install mbstring' >> $I/Dockerfile
   echo 'RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer' >> $I/Dockerfile
   echo '' >> $I/Dockerfile
-  echo '# Install php-cs-fixer' >> $I/Dockerfile
-  echo 'RUN composer global require fabpot/php-cs-fixer && ln -s ~/.composer/vendor/bin/php-cs-fixer /usr/local/bin/' >> $I/Dockerfile
 done

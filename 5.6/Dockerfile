@@ -6,5 +6,3 @@ RUN docker-php-ext-install zip
 RUN docker-php-ext-install mbstring
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Install php-cs-fixer
-RUN composer global require fabpot/php-cs-fixer && ln -s ~/.composer/vendor/bin/php-cs-fixer /usr/local/bin/
