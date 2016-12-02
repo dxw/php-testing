@@ -1,7 +1,7 @@
 #!/bin/sh
 set -xe
 
-for I in 5.5 5.6 7.0; do
+for I in 5.5 5.6 7.0 7.1; do
   mkdir -p $I
   echo "FROM php:$I-cli" > $I/Dockerfile
   echo '' >> $I/Dockerfile
