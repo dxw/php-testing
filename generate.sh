@@ -1,14 +1,21 @@
 #!/bin/sh
 set -xe
 
-for I in 5.5 5.6 7.0 7.1; do
-  mkdir -p $I
-  echo "FROM php:$I-cli" > $I/Dockerfile
-  echo '' >> $I/Dockerfile
-  echo '# Install composer and dependencies' >> $I/Dockerfile
-  echo 'RUN apt-get update && apt-get install -y --no-install-recommends git zlib1g-dev ca-certificates' >> $I/Dockerfile
-  echo 'RUN docker-php-ext-install zip' >> $I/Dockerfile
-  echo 'RUN docker-php-ext-install mbstring' >> $I/Dockerfile
-  echo 'RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer' >> $I/Dockerfile
-  echo '' >> $I/Dockerfile
-done
+gen() {
+  BASE=$1
+  NAME=$2
+
+  mkdir -p ${NAME}
+  echo "FROM php:${BASE}-cli" > ${NAME}/Dockerfile
+  echo '' >> ${NAME}/Dockerfile
+  echo '# Install composer and dependencies' >> ${NAME}/Dockerfile
+  echo 'RUN apt-get update && apt-get install -y --no-install-recommends git zlib1g-dev ca-certificates' >> ${NAME}/Dockerfile
+  echo 'RUN docker-php-ext-install zip' >> ${NAME}/Dockerfile
+  echo 'RUN docker-php-ext-install mbstring' >> ${NAME}/Dockerfile
+  echo 'RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer' >> ${NAME}/Dockerfile
+  echo '' >> ${NAME}/Dockerfile
+}
+
+gen 7.0 7.0
+gen 7.1 7.1
+gen 7.2-rc 7.2
