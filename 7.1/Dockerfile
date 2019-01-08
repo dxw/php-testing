@@ -1,7 +1,7 @@
 FROM php:7.1-cli
 
 # Install composer and dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends git zlib1g-dev ca-certificates libpng-dev
+RUN apt-get update && apt-get install -y --no-install-recommends git zlib1g-dev ca-certificates libpng-dev libzip-dev
 RUN docker-php-ext-install zip
 RUN docker-php-ext-install mbstring
 RUN docker-php-ext-install pcntl

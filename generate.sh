@@ -9,7 +9,7 @@ gen() {
   echo "FROM php:${BASE}-cli" > ${NAME}/Dockerfile
   echo '' >> ${NAME}/Dockerfile
   echo '# Install composer and dependencies' >> ${NAME}/Dockerfile
-  echo 'RUN apt-get update && apt-get install -y --no-install-recommends git zlib1g-dev ca-certificates libpng-dev' >> ${NAME}/Dockerfile
+  echo 'RUN apt-get update && apt-get install -y --no-install-recommends git zlib1g-dev ca-certificates libpng-dev libzip-dev' >> ${NAME}/Dockerfile
   echo 'RUN docker-php-ext-install zip' >> ${NAME}/Dockerfile
   echo 'RUN docker-php-ext-install mbstring' >> ${NAME}/Dockerfile
   echo 'RUN docker-php-ext-install pcntl' >> ${NAME}/Dockerfile
@@ -22,4 +22,5 @@ gen() {
 
 gen 7.0 7.0
 gen 7.1 7.1
-gen 7.2-rc 7.2
+gen 7.2 7.2
+gen 7.3 7.3
