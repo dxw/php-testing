@@ -17,7 +17,10 @@ gen() {
   echo 'RUN docker-php-ext-install sockets' >> ${NAME}/Dockerfile
   echo 'RUN docker-php-ext-install gd' >> ${NAME}/Dockerfile
   echo 'RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer' >> ${NAME}/Dockerfile
+  echo 'COPY php.ini /usr/local/etc/php/' >> ${NAME}/Dockerfile
   echo '' >> ${NAME}/Dockerfile
+  echo 'error_reporting = E_ALL' > ${NAME}/php.ini
+  echo '' >> ${NAME}/php.ini
 }
 
 gen 7.0 7.0

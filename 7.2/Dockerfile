@@ -9,4 +9,5 @@ RUN docker-php-ext-install sysvsem
 RUN docker-php-ext-install sockets
 RUN docker-php-ext-install gd
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+COPY php.ini /usr/local/etc/php/
 
