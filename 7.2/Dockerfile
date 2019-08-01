@@ -1,5 +1,8 @@
 FROM php:7.2-cli
 
+# Show all errors
+RUN echo error_reporting=E_ALL > $PHP_INI_DIR/conf.d/errors.ini
+
 # Install composer and dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends git zlib1g-dev ca-certificates libpng-dev libzip-dev
 RUN docker-php-ext-install zip

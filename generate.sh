@@ -8,6 +8,9 @@ gen() {
   mkdir -p ${NAME}
   echo "FROM php:${BASE}-cli" > ${NAME}/Dockerfile
   echo '' >> ${NAME}/Dockerfile
+  echo '# Show all errors' >> ${NAME}/Dockerfile
+  echo 'RUN echo error_reporting=E_ALL > $PHP_INI_DIR/conf.d/errors.ini' >> ${NAME}/Dockerfile
+  echo '' >> ${NAME}/Dockerfile
   echo '# Install composer and dependencies' >> ${NAME}/Dockerfile
   echo 'RUN apt-get update && apt-get install -y --no-install-recommends git zlib1g-dev ca-certificates libpng-dev libzip-dev' >> ${NAME}/Dockerfile
   echo 'RUN docker-php-ext-install zip' >> ${NAME}/Dockerfile
