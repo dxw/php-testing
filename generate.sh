@@ -12,7 +12,7 @@ gen() {
   echo 'RUN echo error_reporting=E_ALL > $PHP_INI_DIR/conf.d/errors.ini' >> ${NAME}/Dockerfile
   echo '' >> ${NAME}/Dockerfile
   echo '# Install APT dependencies' >> ${NAME}/Dockerfile
-  echo 'RUN apt-get update && apt-get install -y --no-install-recommends git zlib1g-dev ca-certificates libpng-dev libzip-dev unzip' >> ${NAME}/Dockerfile
+  echo 'RUN apt-get update && apt-get install -y --no-install-recommends git zlib1g-dev ca-certificates libpng-dev libzip-dev unzip && rm -r /var/lib/apt/lists/*' >> ${NAME}/Dockerfile
   echo '' >> ${NAME}/Dockerfile
   echo '# Install PHP extensions' >> ${NAME}/Dockerfile
   echo 'RUN docker-php-ext-install zip mbstring pcntl sysvsem sockets gd' >> ${NAME}/Dockerfile
