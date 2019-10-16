@@ -6,7 +6,7 @@ RUN echo error_reporting=E_ALL > $PHP_INI_DIR/conf.d/errors.ini
 # Install APT dependencies
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    git zlib1g-dev ca-certificates libpng-dev libzip-dev unzip \
+    git zlib1g-dev ca-certificates libpng-dev libzip-dev unzip libonig-dev \
     && rm -r /var/lib/apt/lists/*
 
 # Install PHP extensions
