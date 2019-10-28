@@ -14,3 +14,5 @@ RUN docker-php-ext-install zip mbstring pcntl sysvsem sockets gd
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+ENV COMPOSER_ALLOW_SUPERUSER true
