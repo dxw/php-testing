@@ -1,4 +1,4 @@
-FROM php:7.4-rc-cli
+FROM php:7.4-cli
 
 # Show all errors
 RUN echo error_reporting=E_ALL > $PHP_INI_DIR/conf.d/errors.ini
