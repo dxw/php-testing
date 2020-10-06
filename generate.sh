@@ -9,6 +9,11 @@ gen() {
   sed -e 's/%%BASE%%/'${BASE}'/g' < Dockerfile.template > ${NAME}/Dockerfile
 }
 
+# Regular releases appear like this:
+#     gen X X
+# Release candidates appear like this:
+#     gen X-rc X
+
 gen 7.0 7.0
 gen 7.1 7.1
 gen 7.2 7.2
